@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ai universe hub</title>
+    <!-- Font awesome -->
+    <script
+      src="https://kit.fontawesome.com/1b551efcfa.js"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Google font roboto -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,700;0,900;1,100;1,300;1,900&display=swap"
+      rel="stylesheet"
+    />
+    <!-- Bootstrap css file linked -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+      crossorigin="anonymous"
+    />
+    <!-- Custom css file linked -->
+    <link rel="stylesheet" href="./css/custom.css" />
+  </head>
+  <body>
+    <!-- Header begins -->
+    <header class="py-3 bg-light text-dark mb-4 shadow-lg">
+      <h1 class="text-center fs-2 text-uppercase fw-bold">ai universe hub</h1>
+    </header>
+    <!-- Header ends -->
+
+    <!-- Main begins -->
+    <main class="container">
+      <!-- Not found message section begins -->
+      <section id="not-found-message" class="text-center d-none"></section>
+      <!-- Not found message section ends -->
+
+      <!-- Spinner section begins -->
+      <section
+        id="spinner-loader"
+        class="d-none d-flex justify-content-center align-items-center bg-light py-3 mb-3 rounded"
+      >
+        <div
+          class="spinner-border text-success spinner-loader-height-width"
+          role="status"
+        >
+          <span class="visually-hidden">Loading...</span>
+        </div>
+        <div
+          class="spinner-grow bg-success spinner-loader-height-width"
+          role="status"
+        >
+          <span class="">Loading...</span>
+        </div>
+      </section>
+      <!-- ./Spinner section ends -->
+
+      <!-- Button filter by data begins -->
+      <section class="d-flex justify-content-center mx-auto mx-2">
+        <button
+          onclick="hideShowMoreButton()"
+          id="sort-limited-dated-btn"
+          type="button"
+          class="btn brn-sm btn-danger mx-2 mx-lg-2 mt-4"
+        >
+          <i class="fa fa-calendar"></i>
+          Sort by date
+        </button>
+        <a id="home-btn" href="index.html" class="d-none">
+          <button type="button" class="btn brn-sm btn-success text-white mt-4">
+            <i class="fa fa-home"></i>
+            Home
+          </button></a
+        >
+      </section>
+      <!-- ./Button filter by data ends -->
+
+      <!-- Cards and show all button container begins -->
+      <section>
+        <div id="card-container" class="cards-container mb-5"></div>
+        <!--Card container begins -->
+        <div
+          id="cards-container"
+          class="row row-cols-1 row-cols-md-3 row-cols-lg-3 gy-4"
+        ></div>
+        <!-- ./Card container ends -->
+        <div
+          id="show-all-data"
+          class="text-center my-5 col-sm-6 mx-auto d-none px-2"
+        >
+          <!-- show more button begins -->
+          <button
+            onclick="loadMoreData()"
+            type="submit"
+            id="show-all-data-btn"
+            class="btn btn-primary my-5 d-block w-100"
+          >
+            <i class="fa fa-eye"></i>
+            Show more random data
+          </button>
+          <!-- ./show more button ends -->
+        </div>
+
+        <!-- Show all sorted data by date button begins -->
+        <div class="text-center my-5 col-sm-6 mx-auto">
+          <button
+            onclick="hideShowAllSortedButton()"
+            id="all-sorted-data-btn"
+            type="button"
+            class="btn btn-sm btn-danger d-none d-block w-100"
+          >
+            <i class="fa fa-calendar"></i>
+            Show all sorted data
+          </button>
+        </div>
+        <!-- ./Show limited sorted data by date button ends -->
+      </section>
+      <!-- Cards and show all button container ends -->
+
+      <!-- Modal begins -->
+      <div
+        class="modal fade"
+        id="exampleModal"
+        tabindex="-1"
+        aria-labelledby="exampleModalLabel"
+        aria-hidden="true"
+      >
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h1 id="exampleModalLabel"></h1>
+              <button
+                type="button"
+                class="btn-close bg-danger"
+                data-bs-dismiss="modal"
+                aria-label="Close"
+              ></button>
+            </div>
+            <div class="modal-body" id="ai-body-model">
+              <div class="row">
+                <div class="col-sm-6">
+                  <!-- Ai description, pricing & plan, features & integrations begin -->
+                  <div
+                    class="border border-danger-subtle rounded shadow-lg div-bg p-3"
+                  >
+                    <!-- Ai description begins -->
+                    <div id="ai-description"></div>
+                    <!-- ./Ai description ends -->
+
+                    <!-- Ai pricing & plan begins -->
+                    <div id="ai-pricing"></div>
+                    <!-- ./Ai pricing & plan ends -->
+
+                    <!-- Features and integrations begins -->
+                    <div class="row my-4">
+                      <div class="col-sm-6" id="ai-features-container"></div>
+                      <div class="col-sm-6" id="ai-integration-container"></div>
+                    </div>
+                    <!-- ./Features and integrations ends -->
+                  </div>
+                  <!-- ./Ai description, pricing & plan, features & integrations end -->
+                </div>
+
+                <!-- Image and text wrapper begins -->
+                <div class="col-sm-6 order-first order-lg-2">
+                  <div
+                    id="right-side-wrapper"
+                    class="border border-1 bg-green rounded p-3 shadow-lg"
+                  >
+                    <div id="image-and-text-wrapper"></div>
+                    <div id="input-output-wrapper"></div>
+                  </div>
+                </div>
+                <!-- ./Image and text wrapper ends -->
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button
+                type="button"
+                class="btn btn-sm btn-danger"
+                data-bs-dismiss="modal"
+              >
+                Close
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- ./Modal ends -->
+    </main>
+    <!-- Main ends -->
+
+    <!-- Footer begins -->
+    <footer>
+      <div class="bg-dark p-3 mt-4 text-center text-white">
+        <span>&copy; 2023 All rights reserved against ai</span>
+      </div>
+    </footer>
+    <!-- ./Footer ends -->
+
+    <!-- Bootstrap js files linked -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"
+      integrity="sha384-oBqDVmMz9ATKxIep9tiCxS/Z9fNfEXiDAYTujMAeBAsjFuCZSmKbSSUnQlmh/jp3"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"
+      integrity="sha384-mQ93GR66B00ZXjt0YO5KlohRA5SY2XofN4zfuZxLkoj1gXtW8ANNCe9d5Y3eG5eD"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- Helpers.js linked -->
+    <script src="./api/helpers.js"></script>
+    <!-- App.js file liked -->
+    <script src="./api/app.js"></script>
+    <!-- card.js file linked -->
+    <script src="./api/card.js"></script>
+    <!-- Modal.js linked -->
+    <script src="./api/modal.js"></script>
+  </body>
+</html>

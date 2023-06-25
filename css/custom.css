@@ -1,0 +1,63 @@
+body {
+  font-family: "Roboto", sans-serif;
+}
+
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  min-height: 29rem;
+}
+
+.spinner-loader-height-width {
+  height: 2rem;
+  width: 2rem;
+  margin: 0rem 0.2rem;
+}
+
+.button-position {
+  top: 10%;
+  right: 6%;
+}
+
+.card-img {
+  min-height: 13rem;
+}
+.card-height {
+  min-height: 13rem;
+}
+a {
+  text-decoration: none;
+  color: #fff;
+}
+.div-bg {
+  background-color: #fef7f7;
+}
+.title-text-size {
+  font-size: 1.2rem;
+}
+.li-text-size {
+  font-size: 0.8rem;
+}
+.plan-text {
+  font-size: 0.9rem;
+  padding: 0;
+  font-weight: normal;
+}
+.feature-text {
+  font-size: 0.7rem;
+}
+.description-text {
+  font-size: 0.7rem;
+}
+.not-found-message {
+  font-size: 0.8rem;
+  text-align: center;
+}
+.input-output-examples-header {
+  font-size: 1.5rem;
+  text-align: center;
+}
+.input-output-examples {
+  font-size: 0.8rem;
+  text-align: center;
+  font-weight: normal;
+}
